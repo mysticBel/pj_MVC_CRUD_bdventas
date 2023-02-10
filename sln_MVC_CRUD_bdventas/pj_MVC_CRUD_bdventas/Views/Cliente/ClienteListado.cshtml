@@ -20,12 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.tel_cli)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cor_cli)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dir_cli)
-        </th>
+        <!-- correo y direccion eliminados de la vista de ClienteListado -->
         <th>
             @Html.DisplayNameFor(model => model.cred_cli)
         </th>
@@ -35,9 +30,7 @@
         <th>
             @Html.DisplayNameFor(model => model.cod_dist)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.eli_cli)
-        </th>
+        <!-- eli_cli eliminado de la vista de ClienteListado -->
         <th></th>
     </tr>
 
@@ -52,12 +45,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.tel_cli)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cor_cli)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dir_cli)
-        </td>
+        <!-- correo y direccion eliminados de la vista de ClienteListado -->
         <td>
             @Html.DisplayFor(modelItem => item.cred_cli)
         </td>
@@ -67,9 +55,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.cod_dist)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eli_cli)
-        </td>
+        <!-- eli_cli eliminado de la vista de ClienteListado -->
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
