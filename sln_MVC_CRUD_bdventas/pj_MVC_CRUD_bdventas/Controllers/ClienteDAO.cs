@@ -1,9 +1,11 @@
-﻿using pj_MVC_CRUD_bdventas.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Data;
+
+using System.Configuration; // Leer web.config
+using System.Data;          // propiedades para los elementos de ADO .Net
+using System.Data.SqlClient; // utilizar los modelos de SQL Client
+using pj_MVC_CRUD_bdventas.Models; //utilizar los modelos
+using System.Reflection;
 using System.Linq;
 using System.Web;
 
@@ -40,9 +42,9 @@ namespace pj_MVC_CRUD_bdventas.Controllers
                     tel_cli = dr.GetString(2),
                     cor_cli = dr.GetString(3),
                     dir_cli = dr.GetString(4),
-                    cred_cli = (Int32)dr["cred_cli"],
+                    cred_cli = (Int32)dr["cred_cli"], // es igual al getInt32 pues es entero
                     fec_nac = (DateTime)dr["fec_nac"],
-                    cod_dist = dr.GetInt32(dr.GetOrdinal("cod_dist"))
+                    cod_dist = dr.GetInt32(dr.GetOrdinal("cod_dist")) //trae la columna 7, no importa el orden
                 };
                 //
                 lista.Add(var_modelo);
@@ -54,5 +56,7 @@ namespace pj_MVC_CRUD_bdventas.Controllers
             //
             return lista;
         }
+
+
     }
 }
