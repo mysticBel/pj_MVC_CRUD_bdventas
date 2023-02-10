@@ -82,12 +82,19 @@ namespace pj_MVC_CRUD_bdventas.Controllers
 
         // Part 4 : ==============
 
+         
         // GET: Cliente/Details/5
-        public ActionResult Details(int id)
+        public ActionResult ClienteDetalle(string id = "")
         {
-            return View();
+            // obtener la información del cliente en base a su codigo
+            var listado = dao_cli.ListarClientes("No");
+            //
+            ClienteModel obj = listado.Find(c => c.cod_cli.Equals(id));
+            //
+            return View(obj);
         }
 
+        // Part 5 : Editar Ciente
         // GET: Cliente/Edit/5
         public ActionResult Edit(int id)
         {
@@ -110,6 +117,7 @@ namespace pj_MVC_CRUD_bdventas.Controllers
             }
         }
 
+        // Part 6 : Eliminar Cliente
         // GET: Cliente/Delete/5
         public ActionResult Delete(int id)
         {
