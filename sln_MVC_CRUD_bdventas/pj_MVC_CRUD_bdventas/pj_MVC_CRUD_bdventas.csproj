@@ -112,6 +112,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Cliente\ClienteListado.cshtml" />
     <Content Include="Views\Cliente\ClienteGrabar.cshtml" />
+    <Content Include="Views\Cliente\ClienteDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
