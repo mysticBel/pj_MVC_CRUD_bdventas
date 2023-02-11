@@ -82,7 +82,18 @@
         <div class="form-group">
             @Html.LabelFor(model => model.eli_cli, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.eli_cli, new { htmlAttributes = new { @class = "form-control" } })
+
+
+
+                <!-- dropdownlist para el campo cod_dist -->
+                @Html.DropDownList("cod_dist",
+                                    (SelectList)ViewBag.DISTRITOS,
+                                    "Seleccione",
+                                    new { @class = "form-control" }
+               )
+               
+
+
                 @Html.ValidationMessageFor(model => model.eli_cli, "", new { @class = "text-danger" })
             </div>
         </div>
