@@ -114,6 +114,7 @@
     <Content Include="Views\Cliente\ClienteGrabar.cshtml" />
     <Content Include="Views\Cliente\ClienteDetalle.cshtml" />
     <Content Include="Views\Cliente\ClienteEditar.cshtml" />
+    <Content Include="Views\Cliente\ClienteEliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

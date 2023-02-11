@@ -1,0 +1,99 @@
+﻿@model pj_MVC_CRUD_bdventas.Models.ClienteModel
+
+@{
+    ViewBag.Title = "ClienteEliminar";
+}
+
+<h2>ClienteEliminar</h2>
+
+<h3>¿Estas seguro de <b>eliminar</b> este registro?</h3>
+<div>
+    <h4>ClienteModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cod_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cor_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cor_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dir_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dir_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cred_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cred_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fec_nac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fec_nac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_dist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cod_dist)
+        </dd>
+
+        <!-- borramos el eli_cli de la vista -->
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar Cliente"
+                   class="btn btn-danger" /> |
+            @Html.ActionLink("Regresar al Listado", "ClienteListado")
+        </div>
+    }
+</div>
+
+
+<!-- Añadimos el mensaje de confirmación de  cliente eliminado -->
+<br />
+<div class="alert alert-danger">
+    @ViewBag.MENSAJE
+</div>
