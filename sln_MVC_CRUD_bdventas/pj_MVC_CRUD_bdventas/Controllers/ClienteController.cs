@@ -147,25 +147,34 @@ namespace pj_MVC_CRUD_bdventas.Controllers
 
         // Part 6 : Eliminar Cliente
         // GET: Cliente/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult ClienteEliminar(string id)
         {
-            return View();
+            // obtener la información del cliente en base a su codigo
+            var listado = dao_cli.ListarClientes("No");
+            //
+            ClienteModel obj = listado.Find(c => c.cod_cli.Equals(id));
+            //
+            return View(obj);
         }
 
         // POST: Cliente/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult ClienteEliminar(string id, FormCollection collection)
         {
+            string mensaje = "";
             try
             {
                 // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                mensaje = dao_cli.EliminarCliente(id);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                mensaje = ex.Message;
             }
+            //
+            ViewBag.MENSAJE = mensaje;
+            //
+            return View();
         }
     }
 }
