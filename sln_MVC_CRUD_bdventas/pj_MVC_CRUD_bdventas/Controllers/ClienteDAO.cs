@@ -92,6 +92,73 @@ namespace pj_MVC_CRUD_bdventas.Controllers
             }
             return mensaje;
         }
+        public String ActualizarCliente(ClienteModel var_objeto)
+        {
+            String mensaje = "";
+            //
+            SqlConnection cn = new SqlConnection(cad_cn);
+            try
+            {
+                cn.Open();
+                //
+                SqlCommand cmd = new SqlCommand("PA_ACTUALIZAR_CLIENTE", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                // 8 parámetros
+                cmd.Parameters.AddWithValue("@cod_cli", var_objeto.cod_cli);
+                cmd.Parameters.AddWithValue("@nom_cli", var_objeto.nom_cli);
+                cmd.Parameters.AddWithValue("@tel_cli", var_objeto.tel_cli);
+                cmd.Parameters.AddWithValue("@cor_cli", var_objeto.cor_cli);
+                cmd.Parameters.AddWithValue("@dir_cli", var_objeto.dir_cli);
+                cmd.Parameters.AddWithValue("@cred_cli", var_objeto.cred_cli);
+                cmd.Parameters.AddWithValue("@fec_nac", var_objeto.fec_nac);
+                cmd.Parameters.AddWithValue("@cod_dist", var_objeto.cod_dist);
+                //
+                cmd.ExecuteNonQuery();
+                //
+                mensaje = "El Cliente: " + var_objeto.cod_cli +
+                          " fué actualizado correctamente";
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return mensaje;
+        }
+
+        public String EliminarCliente(string cod_cli)
+        {
+            String mensaje = "";
+            //
+            SqlConnection cn = new SqlConnection(cad_cn);
+            try
+            {
+                cn.Open();
+                //
+                SqlCommand cmd = new SqlCommand("PA_ELIMINAR_CLIENTE", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                // 1 parámetro
+                cmd.Parameters.AddWithValue("@cod_cli", cod_cli);
+                //
+                cmd.ExecuteNonQuery();
+                //
+                mensaje = "El Cliente: " + cod_cli +
+                          " fué eliminado correctamente";
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error: " + ex.Message;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return mensaje;
+        }
+
 
     }
 }
