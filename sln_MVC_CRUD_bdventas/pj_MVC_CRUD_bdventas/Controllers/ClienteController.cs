@@ -96,25 +96,53 @@ namespace pj_MVC_CRUD_bdventas.Controllers
 
         // Part 5 : Editar Ciente
         // GET: Cliente/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult ClienteEditar(string id = "")
         {
-            return View();
+            // obtener la información del cliente en base a su codigo
+            var listado = dao_cli.ListarClientes("No");
+            //
+            ClienteModel obj = listado.Find(c => c.cod_cli.Equals(id));
+
+            // traer la lista de distritos dentro de un viewbag
+            ViewBag.DISTRITOS = new SelectList(
+                 dao_dis.ListarDistritos(), // data
+                 "cod_dist",  // nombre del campo clave o pk
+                 "nom_dist"  // nombre del campo a mostrar en el dropdownlist
+                );
+
+            //
+            return View(obj);
         }
 
         // POST: Cliente/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult ClienteEditar(string id, ClienteModel cliupdate)
         {
+            string mensaje = "";
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid == true)
+                {
+                    mensaje = dao_cli.ActualizarCliente(cliupdate);
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                mensaje = ex.Message;
             }
+            //
+            ViewBag.MENSAJE = mensaje;
+
+            // traer la lista de distritos dentro de un viewbag
+            ViewBag.DISTRITOS = new SelectList(
+                 dao_dis.ListarDistritos(), // data
+                 "cod_dist",  // nombre del campo clave o pk
+                 "nom_dist"  // nombre del campo a mostrar en el dropdownlist
+                );
+
+            //
+            return View(cliupdate);
         }
 
         // Part 6 : Eliminar Cliente
