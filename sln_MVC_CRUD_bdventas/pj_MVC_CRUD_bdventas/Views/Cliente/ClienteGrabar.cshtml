@@ -83,14 +83,14 @@
                                     new { @class = "form-control" }
                )
 
-             
+
 
 
                 @Html.ValidationMessageFor(model => model.cod_dist, "", new { @class = "text-danger" })
             </div>
         </div>
 
-       <!--eliminamos el campo eli_cli-->
+        <!--eliminamos el campo eli_cli-->
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -104,7 +104,7 @@
     @Html.ActionLink("Regresar al Listado de Clientes", "ClienteListado")
 </div>
 
-
+<!-- mensaje de exito :) -->
 <br />
 <div class="alert alert-info">
     @ViewBag.MENSAJE

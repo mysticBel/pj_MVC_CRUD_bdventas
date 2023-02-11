@@ -18,7 +18,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.cod_cli, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cod_cli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.cod_cli,
+               new { htmlAttributes = new { @class = "form-control" , @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.cod_cli, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -74,15 +75,6 @@
         <div class="form-group">
             @Html.LabelFor(model => model.cod_dist, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cod_dist, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cod_dist, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.eli_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-
 
 
                 <!-- dropdownlist para el campo cod_dist -->
@@ -91,12 +83,14 @@
                                     "Seleccione",
                                     new { @class = "form-control" }
                )
-               
 
 
-                @Html.ValidationMessageFor(model => model.eli_cli, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.cod_dist, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cod_dist, "", new { @class = "text-danger" })
             </div>
         </div>
+
+      <!-- borramos eli_cli de la vista -->
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
