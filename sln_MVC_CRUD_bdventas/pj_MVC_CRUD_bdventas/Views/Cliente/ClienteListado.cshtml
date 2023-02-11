@@ -7,7 +7,7 @@
 <h2>ClienteListado</h2>
 
 <p>
-    @Html.ActionLink("Create New", "ClienteGrabar")
+    @Html.ActionLink("Nuevo Cliente", "ClienteGrabar")
 </p>
 <table class="table">
     <tr>
@@ -57,9 +57,10 @@
         </td>
         <!-- eli_cli eliminado de la vista de ClienteListado -->
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            <!-- 3 parametros : Msj en español , ActionResult , obj id=item.PrimaryKey  -->
+            @Html.ActionLink("Editar", "ClienteEditar", new { id = item.cod_cli }) |
+            @Html.ActionLink("Detalle", "ClienteDetalle", new { id = item.cod_cli }) |
+            @Html.ActionLink("Delete", "ClienteEliminar", new { id = item.cod_cli })
         </td>
     </tr>
 }
